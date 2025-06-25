@@ -46,9 +46,11 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const fontClasses = `${geistSans.variable} ${geistMono.variable} ${notoSansTC.variable} antialiased`;
+
   return (
     <html lang="zh-TW">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${notoSansTC.variable} antialiased`}>
+      <body className={fontClasses}>
         <Header />
         {children}
       </body>

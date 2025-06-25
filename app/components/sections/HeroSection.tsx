@@ -46,7 +46,7 @@ export function HeroSection() {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-purple-400 rounded-full mix-blend-screen filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
 
         {/* 格子背景 */}
-        <div className="absolute inset-0 bg-grid-white/[0.05] bg-[size:50px_50px]"></div>
+        <div className="absolute inset-0 bg-grid-pattern" style={{ backgroundSize: "50px 50px" }}></div>
 
         {/* 浮動 AI 圖示 */}
         {floatingElements.map((element, index) => (

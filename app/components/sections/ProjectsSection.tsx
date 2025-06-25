@@ -10,6 +10,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "../layout/Container";
 import { ExternalLink, Github, Eye, Filter } from "lucide-react";
 
@@ -205,9 +206,12 @@ export function ProjectsSection() {
                   >
                     <Github className="w-5 h-5" />
                   </a>
-                  <button className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-colors duration-200">
+                  <Link
+                    href={`/portfolio/${project.id}`}
+                    className="bg-white/20 backdrop-blur-sm text-white p-3 rounded-full hover:bg-white/30 transition-colors duration-200"
+                  >
                     <Eye className="w-5 h-5" />
-                  </button>
+                  </Link>
                 </div>
               </div>
 

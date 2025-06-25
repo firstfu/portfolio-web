@@ -114,12 +114,7 @@ export function HeroSection() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1 }}
             className="absolute bottom-6 sm:bottom-8 left-1/2 transform -translate-x-1/2 hidden sm:block"
-          >
-            <div className="flex flex-col items-center text-gray-500">
-              <span className="text-sm mb-2">向下滾動探索更多</span>
-              <ArrowDown className="w-5 h-5 animate-bounce" />
-            </div>
-          </motion.div>
+          ></motion.div>
         </div>
       </Container>
     </section>

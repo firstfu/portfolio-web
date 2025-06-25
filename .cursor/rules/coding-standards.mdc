@@ -1,0 +1,67 @@
+---
+description:
+globs: *
+alwaysApply: false
+---
+# 程式碼風格與開發標準
+
+## 檔案命名規範
+- **元件檔案**: PascalCase (e.g., `HeroSection.tsx`)
+- **頁面檔案**: 小寫 + kebab-case (e.g., `page.tsx`, `about/page.tsx`)
+- **工具檔案**: camelCase (e.g., `utils.ts`)
+- **型別檔案**: camelCase (e.g., `index.ts`)
+
+## 程式碼風格
+### TypeScript 元件結構
+```typescript
+/**
+ * 元件說明
+ *
+ * 詳細描述元件功能、用途和特殊行為
+ */
+
+"use client"; // 僅在需要客戶端功能時使用
+
+import { useState } from "react";
+import { cn } from "../../lib/utils";
+
+interface ComponentProps {
+  // 明確的 props 型別定義
+}
+
+export function ComponentName({ prop1, prop2 }: ComponentProps) {
+  // 元件邏輯
+  return (
+    <div className={cn("base-classes", conditionalClasses)}>
+      {/* JSX 內容 */}
+    </div>
+  );
+}
+```
+
+### 註解規範
+- 每個檔案頂部必須有詳細的功能說明註解
+- 複雜邏輯需要行內註解
+- 介面和型別定義需要註解說明
+
+### 樣式規範
+- 使用 Tailwind CSS utility classes
+- 使用 `cn()` 工具函數進行條件樣式組合
+- 響應式設計: mobile-first 方法
+- 自定義動畫定義在 [globals.css](mdc:app/globals.css)
+
+### 匯入順序
+1. React 相關匯入
+2. 第三方套件
+3. 內部工具函數
+4. 相對路徑匯入
+5. 型別匯入 (使用 `import type`)
+
+## 開發最佳實踐
+- 元件保持單一職責
+- 使用 TypeScript 嚴格模式
+- 優先使用 composition over inheritance
+- 確保無障礙性 (WCAG 2.1 AA)
+- 圖片使用 Next.js Image 元件優化
+
+

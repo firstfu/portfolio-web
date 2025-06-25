@@ -1,0 +1,48 @@
+---
+description:
+globs: *
+alwaysApply: false
+---
+# 個人作品集專案結構指南
+
+## 專案概述
+這是一個使用 Next.js 15、TypeScript 和 Tailwind CSS 構建的現代化個人作品集網站，展示專業技能、專案作品和職業經歷。
+
+## 核心技術棧
+- **框架**: Next.js 15.3.4 (App Router)
+- **語言**: TypeScript 5
+- **樣式**: Tailwind CSS 4
+- **動畫**: Framer Motion
+- **表單**: React Hook Form + Zod
+- **圖示**: Lucide React
+
+## 檔案結構
+```
+app/
+├── components/          # 可重用元件
+│   ├── ui/             # 基礎 UI 元件 (Button, Card, Modal)
+│   ├── sections/       # 頁面區塊元件 (HeroSection, SkillsSection)
+│   └── layout/         # 佈局元件 (Header, Footer, Container)
+├── data/               # 靜態資料和配置
+├── lib/                # 工具函數 (utils.ts)
+├── types/              # TypeScript 型別定義
+├── globals.css         # 全域樣式
+├── layout.tsx          # 根佈局
+└── page.tsx           # 首頁
+```
+
+## 主要參考檔案
+- 專案需求: [PRD-個人作品集網站.md](mdc:docs/PRD-個人作品集網站.md)
+- 技術規格: [技術規格文件.md](mdc:docs/技術規格文件.md)
+- 型別定義: [types/index.ts](mdc:app/types/index.ts)
+- 根佈局: [layout.tsx](mdc:app/layout.tsx)
+- 全域樣式: [globals.css](mdc:app/globals.css)
+
+## 開發指引
+1. 新增元件時參考現有的程式碼結構和註解風格
+2. 使用 TypeScript 進行型別安全開發
+3. 遵循 Tailwind CSS 的 utility-first 方法
+4. 確保響應式設計和無障礙性
+5. 每個檔案頂部都要加上詳細的註解說明
+
+

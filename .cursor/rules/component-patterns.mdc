@@ -1,0 +1,84 @@
+---
+description:
+globs: *
+alwaysApply: false
+---
+# 元件開發模式
+
+## UI 元件模式
+參考現有的基礎 UI 元件: [Button.tsx](mdc:app/components/ui/Button.tsx)
+
+### Button 元件範例
+```typescript
+interface ButtonProps {
+  variant: "primary" | "secondary" | "outline" | "ghost";
+  size: "sm" | "md" | "lg";
+  children: React.ReactNode;
+  className?: string;
+  // ... 其他 props
+}
+```
+
+## 佈局元件模式
+參考現有佈局元件:
+- [Header.tsx](mdc:app/components/layout/Header.tsx) - 導航列
+- [Container.tsx](mdc:app/components/layout/Container.tsx) - 容器包裝
+
+### Header 元件特色
+- 響應式導航選單
+- 滾動時樣式變化
+- 手機版漢堡選單
+- 使用 `cn()` 進行條件樣式
+
+## 區塊元件模式
+參考 sections 目錄下的區塊元件:
+- [HeroSection.tsx](mdc:app/components/sections/HeroSection.tsx)
+- [SkillsSection.tsx](mdc:app/components/sections/SkillsSection.tsx)
+- [ProjectsSection.tsx](mdc:app/components/sections/ProjectsSection.tsx)
+
+### 區塊元件結構
+```typescript
+export function SectionName() {
+  return (
+    <section className="py-16 bg-gray-50">
+      <Container>
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold">區塊標題</h2>
+          <p className="text-gray-600 mt-4">區塊描述</p>
+        </div>
+        {/* 區塊內容 */}
+      </Container>
+    </section>
+  );
+}
+```
+
+## 資料型別模式
+參考型別定義: [types/index.ts](mdc:app/types/index.ts)
+
+### 主要介面
+- `Project` - 專案資料結構
+- `Experience` - 工作經歷結構
+- `Skill` - 技能資料結構
+- `ContactFormData` - 聯繫表單資料
+
+## 動畫模式
+使用 Framer Motion 或 CSS 動畫，參考 [globals.css](mdc:app/globals.css) 中的自定義動畫：
+- `animate-blob` - blob 動畫效果
+- `animate-spin-slow` - 慢速旋轉
+- `animation-delay-*` - 動畫延遲
+
+## 響應式設計模式
+```css
+/* Tailwind 響應式斷點 */
+sm: 640px   /* 小型裝置 */
+md: 768px   /* 中型裝置 */
+lg: 1024px  /* 大型裝置 */
+xl: 1280px  /* 超大型裝置 */
+```
+
+### 常用響應式模式
+- `hidden md:block` - 桌面版顯示
+- `md:hidden` - 手機版顯示
+- `grid-cols-1 md:grid-cols-2 lg:grid-cols-3` - 響應式網格
+

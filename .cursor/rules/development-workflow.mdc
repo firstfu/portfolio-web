@@ -1,0 +1,71 @@
+---
+description:
+globs: *
+alwaysApply: false
+---
+# 開發工作流程
+
+## 專案設定
+參考專案配置檔案:
+- [package.json](mdc:package.json) - 依賴和腳本
+- [tsconfig.json](mdc:tsconfig.json) - TypeScript 配置
+- [next.config.ts](mdc:next.config.ts) - Next.js 配置
+
+## 開發腳本
+```bash
+npm run dev          # 開發伺服器 (使用 Turbopack)
+npm run build        # 生產環境建置
+npm run start        # 啟動生產伺服器
+npm run lint         # ESLint 檢查
+```
+
+## 檔案路徑別名
+使用 `@/` 作為根目錄別名，配置在 [tsconfig.json](mdc:tsconfig.json):
+```typescript
+import { Button } from "@/app/components/ui/Button";
+import { cn } from "@/app/lib/utils";
+```
+
+## 工具函數
+主要工具函數位於 [lib/utils.ts](mdc:app/lib/utils.ts):
+- `cn()` - clsx + tailwind-merge 的組合工具
+- 用於條件性 className 組合
+
+## 資料管理
+- 靜態資料存放在 `app/data/` 目錄
+- 型別定義統一在 [types/index.ts](mdc:app/types/index.ts)
+- 使用 TypeScript 確保型別安全
+
+## 樣式系統
+### Tailwind CSS 設定
+- 使用 Tailwind CSS 4
+- 自定義主題配置在 [globals.css](mdc:app/globals.css)
+- 字體變數: `--font-geist-sans`, `--font-noto-sans-tc`
+
+### 色彩系統
+```css
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+```
+
+## SEO 和 Metadata
+參考 [layout.tsx](mdc:app/layout.tsx) 中的 metadata 配置:
+- 支援繁體中文 (zh-TW)
+- Open Graph 設定
+- 結構化資料
+
+## 效能優化指引
+1. 使用 Next.js Image 元件優化圖片
+2. 動態匯入大型元件
+3. 程式碼分割和懶加載
+4. 靜態生成 (SSG) 優先於伺服器端渲染 (SSR)
+
+## 部署準備
+- 確保所有靜態資源正確引用
+- 檢查環境變數設定
+- 驗證 TypeScript 編譯無錯誤
+- 執行 build 測試
+
+
